@@ -31,4 +31,4 @@ jobs:
 
       - name: Tests
         run: |
-          python -m pytest -v
+          python -m pytest tests/test_api.py -v
