@@ -67,6 +67,23 @@ services:
       - api
 
 
+  grafana:
+    image: grafana/grafana:11.6.0
+    platform: linux/amd64
+    container_name: churn-grafana
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+
+
 volumes:
   esdata:
   prometheus_data:
+  grafana_data:
